@@ -1,4 +1,4 @@
-package com.mca.a-star;
+package com.mca.astar;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

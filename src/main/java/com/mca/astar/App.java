@@ -1,4 +1,4 @@
-package com.mca.a-star;
+package com.mca.astar;
 
 /**
  * Hello world!
