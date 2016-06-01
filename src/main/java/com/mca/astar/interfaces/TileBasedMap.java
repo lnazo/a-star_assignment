@@ -19,6 +19,7 @@ public interface TileBasedMap
 
     /**
      * Check if the considered tile is blocked
+     * @param object the object that is moving
      * @param x The x coordinate of the tile
      * @param y The y coordinate of the tile
      * @return true if the considered tile is blocked
