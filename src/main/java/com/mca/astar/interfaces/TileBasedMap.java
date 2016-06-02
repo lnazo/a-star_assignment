@@ -27,7 +27,7 @@ public interface TileBasedMap
     public boolean blocked(String object, int x, int y);
 
     /**
-     * Check if the considered tile is blocked
+     * Get the cost of moving to a given tile
      * @param object The object that is moving
      * @param startX The x coordinate of the start tile
      * @param startY The y coordinate of the start tile
