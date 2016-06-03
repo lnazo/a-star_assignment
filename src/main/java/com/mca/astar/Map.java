@@ -8,15 +8,21 @@ public class Map
 {
     private BuildMap buildMap = new BuildMap();
     private static String[][] tiledMap;
-    private static int breadth;
-    private static int height;
+    private static int[][] terrain;
+
+    private AStar pathFinder;
+    private Path path;
 
     public static void main(String[] args)
     {
         Map obj = new Map();
-        obj.buildMap.getFile("small_map.txt");
         tiledMap = obj.buildMap.getTiledMap();
+        terrain = obj.buildMap.getTerrain();
 
-        //System.out.println(tiledMap[1][0]);
+        obj.pathFinder = new AStar(obj.buildMap, 4);
+        obj.path = obj.pathFinder.findPath(null, 0, 0, 4, 4);
+
+        System.out.println("Path: " + obj.path);
+        //System.out.println(obj.path.getLength());
     }
 }

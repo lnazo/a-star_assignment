@@ -15,10 +15,10 @@ public class ManhattanH implements AStarHeuristic
      * Determine the heuristic cost
      * @param newCost The cost at a tile
      */
-    public ManhattanH(int newCost)
+/*    public ManhattanH(int newCost)
     {
         this.cost = newCost;
-    }
+    }*/
 
     // calculates cost using Manhattan Heuristic
     public float getCost(TileBasedMap map, String object, int x, int y, int goalX, int goalY)

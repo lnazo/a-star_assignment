@@ -15,12 +15,11 @@ public class BuildMap implements TileBasedMap
     // the map to build up
     private String[][] tiledMap;
     private int[][] terrain;
-    private int[][] traveller;
     private boolean[][] visited;
 
     // terrain costs
     private static final int WATER = 0;
-    private static final int FLATLANDS = 1;
+    private static final int FLAT_LANDS = 1;
     private static final int FOREST = 2;
     private static final int MOUNTAIN = 3;
 
@@ -28,25 +27,30 @@ public class BuildMap implements TileBasedMap
     private int countRow = 0;
     private int countCol = 0;
 
-    // check below*
-    private AStarHeuristic heuristics;
-    private ManhattanH heuristic;
-    private AStar pathFinder;
-
     public BuildMap()
     {
-        //pathFinder = new AStar(tiledMap, 5, heuristic);
+        getFile("small_map.txt");
     }
 
     /**
-     * Set the size of the map helpers
-     * @param size The size of the map
+     * Fill the map with terrain
      */
-    private void setValues(int size)
+    public void fillTerrain()
     {
-        terrain = new int[size][size];
-        traveller = new int[size][size];
-        visited = new boolean[size][size];
+        for (int i = 0; i < terrain.length; i++)
+        {
+            for (int j = 0; j < terrain.length; j++)
+            {
+                if (tiledMap[j][i].equals("~"))
+                    terrain[j][i] = WATER;
+                else if (tiledMap[j][i].equals(".") || tiledMap[j][i].equals("@") || tiledMap[j][i].equals("X"))
+                    terrain[j][i] = FLAT_LANDS;
+                if (tiledMap[j][i].equals("*"))
+                    terrain[j][i] = FOREST;
+                if (tiledMap[j][i].equals("^"))
+                    terrain[j][i] = MOUNTAIN;
+            }
+        }
     }
 
     /**
@@ -82,36 +86,16 @@ public class BuildMap implements TileBasedMap
      */
     public int getTerrain(int x, int y)
     {
+        System.out.println("x = " + x + " - y = " + y);
         return terrain[x][y];
-    }
-
-    /**
-     * Get the position of the traveller
-     * @param x The x coordinate of the visited tile
-     * @param x The y coordinate of the visited tile
-     * @return The position of the visited tile
-     */
-    public int getTraveller(int x, int y)
-    {
-        return traveller[x][y];
-    }
-
-    /**
-     * Set the traveller position at the given tile
-     * @param x The x coordinate of the tile
-     * @param x The y coordinate of the tile
-     * @param travel The mark of the traveller (check)*
-     */
-    public void setTraveller(int x, int y, int travel)
-    {
-        traveller[x][y] = travel;
     }
 
     // check if the considered tile is blocked
     public boolean blocked(String object, int x, int y)
     {
-        if (getTraveller(x, y) != 0)
-            return true;
+        //return getTerrain(x, y) != WATER;
+        if (getTerrain(x, y) != 0)
+            return false;
 
         return true;
     }
@@ -119,7 +103,7 @@ public class BuildMap implements TileBasedMap
     // get the cost of moving to a given tile
     public float getCost(String object, int startX, int startY, int goalX, int goalY)
     {
-        return 1;
+        return 1.0f;
     }
 
     // get the breadth of the map
@@ -147,6 +131,15 @@ public class BuildMap implements TileBasedMap
     public String[][] getTiledMap()
     {
         return tiledMap;
+    }
+
+    /**
+     * Get the text file with the map
+     * @return The filled map
+     */
+    public int[][] getTerrain()
+    {
+        return terrain;
     }
 
     /**
@@ -185,6 +178,8 @@ public class BuildMap implements TileBasedMap
             }
 
             tiledMap = new String[countRow][countCol];
+            terrain = new int[countRow][countCol];
+            visited = new boolean[countRow][countCol];
 
             // fill the map
             for (int row = 0; row < newString.length; row++)
@@ -195,7 +190,7 @@ public class BuildMap implements TileBasedMap
                 }
             }
 
-            setValues(countRow);
+            fillTerrain();
         }
 
         catch (IOException e)

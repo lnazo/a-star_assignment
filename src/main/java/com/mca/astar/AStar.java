@@ -1,8 +1,8 @@
 package com.mca.astar;
 
-import com.mca.astar.interfaces.AStarHeuristic;
+//import com.mca.astar.interfaces.AStarHeuristic;
 import com.mca.astar.interfaces.PathFinder;
-import com.mca.astar.interfaces.TileBasedMap;
+//import com.mca.astar.interfaces.TileBasedMap;
 
 /**
  * Implementation of A* Algorithm
@@ -11,7 +11,7 @@ import com.mca.astar.interfaces.TileBasedMap;
 public class AStar implements PathFinder
 {
     // the map that will be searched
-    private TileBasedMap map;
+    private BuildMap map;
 
     // set of tiles in the map
     private Node[][] nodes;
@@ -23,11 +23,21 @@ public class AStar implements PathFinder
     private int maxDepth = 0;
 
     // heuristic that will calculate cost of tiles
-    private AStarHeuristic heuristic;
+    private ManhattanH heuristic;
 
-    //private ManhattanH heuristic; (check)*
-
+    // methods for open and closed lists
     private HandleLists lists = new HandleLists();
+
+    /**
+     * Create a path finder with the default heuristic - closest to target.
+     *
+     * @param map The map to be searched
+     * @param maxSearchDistance The maximum depth we'll search before giving up
+     */
+    public AStar(BuildMap map, int maxSearchDistance)
+    {
+        this(map, maxSearchDistance, new ManhattanH());
+    }
 
     /**
      * Initialises the map
@@ -35,7 +45,7 @@ public class AStar implements PathFinder
      * @param maxSearchDistance The max distance to consider
      * @param heuristic The heuristic used to determine search pattern
      */
-    public AStar(TileBasedMap map, int maxSearchDistance, AStarHeuristic heuristic)
+    public AStar(BuildMap map, int maxSearchDistance, ManhattanH heuristic)
     {
         this.heuristic = heuristic;
         this.map = map;
@@ -55,7 +65,7 @@ public class AStar implements PathFinder
     {
         if (map.blocked(object, goalX, goalY))
         {
-            // path not found
+            // path not found if destination blocked
             return null;
         }
 
