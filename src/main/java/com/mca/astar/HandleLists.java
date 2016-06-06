@@ -10,14 +10,15 @@ import java.util.Collections;
 public class HandleLists
 {
     // open list that keeps track of tiles to be processed
-    private ArrayList open = new ArrayList();
+    private ArrayList open;
 
     // closed list that has tiles already processed
-    private ArrayList closed = new ArrayList();
+    private ArrayList closed;
 
     public HandleLists()
     {
-        // nothing to construct
+        open = new ArrayList();
+        closed = new ArrayList();
     }
 
     /**

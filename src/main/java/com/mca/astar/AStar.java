@@ -1,8 +1,6 @@
 package com.mca.astar;
 
-//import com.mca.astar.interfaces.AStarHeuristic;
 import com.mca.astar.interfaces.PathFinder;
-//import com.mca.astar.interfaces.TileBasedMap;
 
 /**
  * Implementation of A* Algorithm
@@ -96,10 +94,11 @@ public class AStar implements PathFinder
             lists.addToClosedList(current);
 
             // check the neighbours of the current node
-            for (int x = -1; x < 2; x++)
+            for (int x = 0; x < 2; x++)
             {
-                for (int y = -1; y < 2; y++)
+                for (int y = 0; y < 2; y++)
                 {
+                    // don't consider the current location
                     if (x == 0 && y == 0)
                         continue;
 

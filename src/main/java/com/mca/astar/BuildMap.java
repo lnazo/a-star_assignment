@@ -86,18 +86,16 @@ public class BuildMap implements TileBasedMap
      */
     public int getTerrain(int x, int y)
     {
-        System.out.println("x = " + x + " - y = " + y);
         return terrain[x][y];
     }
 
     // check if the considered tile is blocked
     public boolean blocked(String object, int x, int y)
     {
-        //return getTerrain(x, y) != WATER;
-        if (getTerrain(x, y) != 0)
-            return false;
+        if (getTerrain(x, y) == WATER)
+            return true;
 
-        return true;
+        return false;
     }
 
     // get the cost of moving to a given tile
