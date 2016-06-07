@@ -12,7 +12,8 @@ public class Path
     // steps taken on the map
     private List<Step> steps;
 
-    public Path() {
+    public Path()
+    {
         this.steps = new ArrayList<>();
     }
 

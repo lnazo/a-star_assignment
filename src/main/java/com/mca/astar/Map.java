@@ -11,8 +11,8 @@ public class Map
     private static String[][] tiledMap;
 
     // the path to find
-    private AStarMethod pathFinder;
-    private Path path;
+    public static AStarMethod pathFinder;
+    public static Path path;
 
     public static void main(String[] args)
     {

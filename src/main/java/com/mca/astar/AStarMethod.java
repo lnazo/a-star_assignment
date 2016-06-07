@@ -129,7 +129,7 @@ public class AStarMethod implements PathFinder
                         {
                             neighbour.setCost(nextStepCost);
                             maxDepth = Math.max(maxDepth, neighbour.setParentDepth(current));
-                            neighbour.setHeuristic(heuristic.getCost(map, xp, yp, goalX, goalY));
+                            neighbour.setHeuristic(heuristic.getCost(xp, yp, goalX, goalY));
                             lists.addToOpenList(neighbour);
                         }
                     }
