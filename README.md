@@ -1,4 +1,4 @@
-# a-star_assingment
+# A* Path finding
 
 An implementation of the A* path finding algorithm.
 
