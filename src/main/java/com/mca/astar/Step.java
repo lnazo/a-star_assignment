@@ -7,8 +7,8 @@ package com.mca.astar;
 public class Step
 {
     // x and y coordinates of given step
-    private int x;
-    private int y;
+    private Integer x;
+    private Integer y;
 
     /**
      * Create a new step
@@ -25,7 +25,7 @@ public class Step
      * Get the x coordinate of the step at a given location
      * @return The x coordinate of the step
      */
-    public int getX()
+    public Integer getX()
     {
         return x;
     }
@@ -34,7 +34,7 @@ public class Step
      * Get the x coordinate of the step at a given location
      * @return The y coordinate of the step
      */
-    public int getY()
+    public Integer getY()
     {
         return y;
     }

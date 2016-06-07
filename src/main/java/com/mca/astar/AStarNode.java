@@ -1,10 +1,12 @@
 package com.mca.astar;
 
+import com.mca.astar.interfaces.Node;
+
 /**
- * Node class
+ * AStarNode class
  * @author Lubabalo Nazo
  */
-public class Node implements Comparable
+public class AStarNode implements Node, Comparable
 {
     // x and y coordinates of a given tile
     private int x;
@@ -20,114 +22,92 @@ public class Node implements Comparable
     private float heuristic;
 
     // tile under consideration
-    private Node parent;
+    private AStarNode parent;
 
     /**
      * Create a new tile
      * @param x The new x coordinate
      * @param y The new y coordinate
      */
-    public Node(int x, int y)
+    public AStarNode(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
 
-    /**
-     * Get the x coordinate of the tile
-     * @return The x coordinate of the tile
-     */
+    // get the x coordinate of the tile
+    @Override
     public int getX()
     {
         return x;
     }
 
-    /**
-     * Get the y coordinate of the tile
-     * @return The y coordinate of the tile
-     */
+    // get the y coordinate of the tile
+    @Override
     public int getY()
     {
         return y;
     }
 
-    /**
-     * Get the cost incurred
-     * @return The cost incurred
-     */
+    // get the cost incurred
+    @Override
     public float getCost()
     {
         return cost;
     }
 
-    /**
-     * Get the heuristic used
-     * @return The heuristic used
-     */
+    // get the heuristic used
+    @Override
     public float getHeuristic()
     {
         return heuristic;
     }
 
-    /**
-     * Get the depth
-     * @return The depth
-     */
+    // get the depth
+    @Override
     public int getDepth()
     {
         return depth;
     }
 
-    /**
-     * Get the tile under consideration
-     * @return The tile under consideration
-     */
-    public Node getParent()
+    // get the tile under consideration
+    @Override
+    public AStarNode getParent()
     {
         return parent;
     }
 
-    /**
-     * Set the new cost
-     * @param newCost The new cost
-     */
+    // set the new cost
+    @Override
     public void setCost(float newCost)
     {
         cost = newCost;
     }
 
-    /**
-     * Set the new heuristic
-     * @param newHeuristic The new heuristic
-     */
+    // set the new heuristic
+    @Override
     public void setHeuristic(float newHeuristic)
     {
         heuristic = newHeuristic;
     }
 
-    /**
-     * Set the new depth
-     * @param newDepth The new depth
-     */
+    // set the new depth
+    @Override
     public void setDepth(int newDepth)
     {
         depth = newDepth;
     }
 
-    /**
-     * Set the new tile under consideration
-     * @param newParent The new tile
-     */
-    public void setParent(Node newParent)
+    // set the new parent
+    @Override
+    public void setParent(AStarNode newParent)
     {
         parent = newParent;
     }
 
-    /**
-     * Set the depth of the new tile
-     * @param parent The depth of the new tile
-     */
-    public int setParentDepth(Node parent)
+    // set the depth of the new tile
+    @Override
+    public int setParentDepth(AStarNode parent)
     {
         depth = parent.depth + 1;
         this.parent = parent;
@@ -135,13 +115,11 @@ public class Node implements Comparable
         return depth;
     }
 
-    /**
-     * Returns comparison of two objects
-     * @return True if the tiles are equal
-     */
+    // returns comparison of two objects
+    @Override
     public int compareTo(Object object)
     {
-        Node newObject = (Node) object;
+        AStarNode newObject = (AStarNode) object;
 
         float f = heuristic + cost;
         float newF = newObject.heuristic + newObject.cost;

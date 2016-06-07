@@ -1,6 +1,7 @@
 package com.mca.astar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The entire path
@@ -9,7 +10,11 @@ import java.util.ArrayList;
 public class Path
 {
     // steps taken on the map
-    private ArrayList steps = new ArrayList();
+    private List<Step> steps;
+
+    public Path() {
+        this.steps = new ArrayList<>();
+    }
 
     /**
      * Get the length of the path
@@ -27,7 +32,7 @@ public class Path
      */
     public Step getStep(int location)
     {
-        return (Step)steps.get(location);
+        return steps.get(location);
     }
 
     /**

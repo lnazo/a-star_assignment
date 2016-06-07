@@ -1,6 +1,5 @@
 package com.mca.astar;
 
-import com.mca.astar.interfaces.AStarHeuristic;
 import com.mca.astar.interfaces.TileBasedMap;
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.util.Scanner;
  * Builds the map based on input
  * @author Lubabalo Nazo
  */
-public class BuildMap implements TileBasedMap
+public class MapBuilder implements TileBasedMap
 {
     // the map to build up
     private String[][] tiledMap;
@@ -27,7 +26,7 @@ public class BuildMap implements TileBasedMap
     private int countRow = 0;
     private int countCol = 0;
 
-    public BuildMap()
+    public MapBuilder()
     {
         getFile("small_map.txt");
     }
@@ -89,34 +88,36 @@ public class BuildMap implements TileBasedMap
         return terrain[x][y];
     }
 
-    // check if the considered tile is blocked
-    public boolean blocked(String object, int x, int y)
+    // check if the considered tile is isBlocked
+    @Override
+    public boolean isBlocked(int x, int y)
     {
-        if (getTerrain(x, y) == WATER)
-            return true;
-
-        return false;
+        return getTerrain(x, y) == WATER;
     }
 
     // get the cost of moving to a given tile
-    public float getCost(String object, int startX, int startY, int goalX, int goalY)
+    @Override
+    public float getCost(int startX, int startY, int goalX, int goalY)
     {
         return 1.0f;
     }
 
     // get the breadth of the map
+    @Override
     public int getBreadthOfTiles()
     {
         return countRow;
     }
 
     // get the height of the map
+    @Override
     public int getHeightOfTiles()
     {
         return countRow;
     }
 
     // notify the PathFinder that a tile has been checked
+    @Override
     public void pathFinderVisited(int x, int y)
     {
         visited[x][y] = true;
@@ -129,15 +130,6 @@ public class BuildMap implements TileBasedMap
     public String[][] getTiledMap()
     {
         return tiledMap;
-    }
-
-    /**
-     * Get the text file with the map
-     * @return The filled map
-     */
-    public int[][] getTerrain()
-    {
-        return terrain;
     }
 
     /**

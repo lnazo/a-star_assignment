@@ -7,22 +7,22 @@ package com.mca.astar;
 public class Map
 {
     // the map to build
-    private BuildMap buildMap = new BuildMap();
+    private MapBuilder mapBuilder = new MapBuilder();
     private static String[][] tiledMap;
 
     // the path to find
-    private AStar pathFinder;
+    private AStarMethod pathFinder;
     private Path path;
 
     public static void main(String[] args)
     {
         // builds up the map based on text file input
         Map obj = new Map();
-        tiledMap = obj.buildMap.getTiledMap();
+        tiledMap = obj.mapBuilder.getTiledMap();
 
         // finds the path based on start and goal position
-        obj.pathFinder = new AStar(obj.buildMap, 100);
-        obj.path = obj.pathFinder.findPath(null, 0, 0, 4, 4);
+        obj.pathFinder = new AStarMethod(obj.mapBuilder, 100);
+        obj.path = obj.pathFinder.findPath(0, 0, tiledMap.length - 1, tiledMap.length - 1);
 
         originalMap();
 

@@ -2,30 +2,31 @@ package com.mca.astar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Methods to handle open and closed lists
  * @author Lubabalo Nazo
  */
-public class HandleLists
+public class ListHandler
 {
     // open list that keeps track of tiles to be processed
-    private ArrayList open;
+    private List<AStarNode> open;
 
     // closed list that has tiles already processed
-    private ArrayList closed;
+    private List<AStarNode> closed;
 
-    public HandleLists()
+    public ListHandler()
     {
-        open = new ArrayList();
-        closed = new ArrayList();
+        open = new ArrayList<>();
+        closed = new ArrayList<>();
     }
 
     /**
      * Get the open list
      * @return The open list
      */
-    public ArrayList getOpenList()
+    public List<AStarNode> getOpenList()
     {
         return open;
     }
@@ -34,7 +35,7 @@ public class HandleLists
      * Get the closed list
      * @return The closed list
      */
-    public ArrayList getClosedList()
+    public List<AStarNode> getClosedList()
     {
         return closed;
     }
@@ -43,16 +44,16 @@ public class HandleLists
      * Get the first tile in the open list
      * @return The first tile
      */
-    public Node getFirstInOpenList()
+    public AStarNode getFirstInOpenList()
     {
-        return (Node)open.get(0);
+        return open.get(0);
     }
 
     /**
      * Add a new tile to the open list
      * @param node The new tile
      */
-    public void addToOpenList(Node node)
+    public void addToOpenList(AStarNode node)
     {
         open.add(node);
         Collections.sort(open);
@@ -62,7 +63,7 @@ public class HandleLists
      * Add an evaluated tile to the closed list
      * @param node The evaluated tile
      */
-    public void addToClosedList(Node node)
+    public void addToClosedList(AStarNode node)
     {
         closed.add(node);
         Collections.sort(closed);
@@ -72,7 +73,7 @@ public class HandleLists
      * Check if a tile exists in the open list
      * @param node The tile under consideration
      */
-    public boolean checkInOpenList(Node node)
+    public boolean checkInOpenList(AStarNode node)
     {
         return open.contains(node);
     }
@@ -81,7 +82,7 @@ public class HandleLists
      * Check if a tile exists in the closed list
      * @param node The tile under consideration
      */
-    public boolean checkInClosedList(Node node)
+    public boolean checkInClosedList(AStarNode node)
     {
         return closed.contains(node);
     }
@@ -90,7 +91,7 @@ public class HandleLists
      * Remove a tile in the open list
      * @param node The tile under consideration
      */
-    public void removeFromOpenList(Node node)
+    public void removeFromOpenList(AStarNode node)
     {
         open.remove(node);
     }
@@ -99,7 +100,7 @@ public class HandleLists
      * Remove a tile in the closed list
      * @param node The tile under consideration
      */
-    public void removeFromClosedList(Node node)
+    public void removeFromClosedList(AStarNode node)
     {
         closed.remove(node);
     }
