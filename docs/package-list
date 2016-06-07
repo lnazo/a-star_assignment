@@ -1,2 +1,5 @@
-com.mca.astar
-com.mca.astar.interfaces
+com.mca.astar.AStar
+com.mca.astar.Heuristic
+com.mca.astar.Map
+com.mca.astar.Node
+com.mca.astar.Path
