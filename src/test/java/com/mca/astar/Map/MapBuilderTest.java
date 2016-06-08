@@ -1,6 +1,5 @@
 package com.mca.astar.Map;
 
-import com.mca.astar.Map.MapBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,6 +16,7 @@ public class MapBuilderTest
     public void setUp() throws Exception
     {
         map = new MapBuilder();
+        map.getFile("small_map.txt");
     }
 
     @Test

@@ -7,23 +7,26 @@ An implementation of the A* path finding algorithm.
 Pre-requisites:
 * Git
 * Java 1.7
+* Python 3
 * Maven
 * SonarQube
 
 #### Run the algorithm
 
-Just download or clonen the repo, and follow these instructions:
+**Download** or **clone** the repo, and follow these instructions:
 
-```
-# cd into the directory
+```java
+// cd into the directory
 cd a-star_assignment/
 
-# open the command line and enter the following
-mvn clean install
+// place your input files into the directory
+e.g. my_map.txt
 
-java -cp target/a-star_assignment-1.0-SNAPSHOT.jar com.mca.astar.map.Map
+// open the command line and enter the following
+py find_path.py <file-name> (Windows) or python find_path.py <file-name> (Linux)
+e.g. py find_path.py my_map.txt
 
-[More instructions to follow]
+// the solution will be prepared and displayed
 ```
 
 Enjoy.

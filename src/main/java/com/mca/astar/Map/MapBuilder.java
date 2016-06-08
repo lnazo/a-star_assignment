@@ -27,7 +27,7 @@ public class MapBuilder implements TileBasedMap
 
     public MapBuilder()
     {
-        getFile("small_map.txt");
+        // nothing to construct
     }
 
     /**
@@ -141,8 +141,9 @@ public class MapBuilder implements TileBasedMap
         String result = "";
 
         // get the location of the file
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(fileName).getFile());
+        //ClassLoader classLoader = getClass().getClassLoader();
+        //File file = new File(classLoader.getResource(fileName).getFile());
+        File file = new File(fileName);
 
         try
         {
@@ -184,7 +185,7 @@ public class MapBuilder implements TileBasedMap
 
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println("The specified file couldn't be found, or it's not a map.");
         }
     }
 }

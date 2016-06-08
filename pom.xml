@@ -31,7 +31,8 @@
       <resource>
         <directory>src/main/resources</directory>
         <includes>
-          <include>**/*.txt</include>
+          <include>large_map.txt</include>
+          <include>small_map.txt</include>
         </includes>
       </resource>
     </resources>

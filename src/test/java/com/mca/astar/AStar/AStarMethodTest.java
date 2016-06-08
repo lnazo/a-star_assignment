@@ -1,6 +1,5 @@
 package com.mca.astar.AStar;
 
-import com.mca.astar.AStar.AStarMethod;
 import com.mca.astar.Map.MapBuilder;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +18,7 @@ public class AStarMethodTest
     public void setUp() throws Exception
     {
         map = new MapBuilder();
+        map.getFile("small_map.txt");
         aStar = new AStarMethod(map, 100);
     }
 

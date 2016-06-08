@@ -10,32 +10,46 @@ import com.mca.astar.Path.Path;
 public class Map
 {
     // the map to build
-    private MapBuilder mapBuilder = new MapBuilder();
-    private static String[][] tiledMap;
+    MapBuilder mapBuilder = new MapBuilder();
+    static String[][] tiledMap;
 
     // the path to find
-    public static AStarMethod pathFinder;
+    static AStarMethod pathFinder;
     public static Path path;
 
     public static void main(String[] args)
     {
         // builds up the map based on text file input
         Map obj = new Map();
-        tiledMap = obj.mapBuilder.getTiledMap();
 
-        // finds the path based on start and goal position
-        obj.pathFinder = new AStarMethod(obj.mapBuilder, 100);
-        obj.path = obj.pathFinder.findPath(0, 0, tiledMap.length - 1, tiledMap.length - 1);
-
-        originalMap();
-
-        for (int i = 0; i < obj.path.getLength(); i++)
+        try
         {
-            tiledMap[obj.path.getX(i)][obj.path.getY(i)] = "#";
+            if (args.length == 0)
+                obj.mapBuilder.getFile("small_map.txt");
+            else
+                obj.mapBuilder.getFile(args[0]);
+
+            tiledMap = obj.mapBuilder.getTiledMap();
+
+            // finds the path based on start and goal position
+            obj.pathFinder = new AStarMethod(obj.mapBuilder, 100);
+            obj.path = obj.pathFinder.findPath(0, 0, tiledMap.length - 1, tiledMap.length - 1);
+
+            originalMap();
+
+            for (int i = 0; i < obj.path.getLength(); i++)
+            {
+                tiledMap[obj.path.getX(i)][obj.path.getY(i)] = "#";
+            }
+
+            System.out.println();
+            routeTaken();
         }
 
-        System.out.println();
-        routeTaken();
+        catch (Exception e)
+        {
+            System.out.println("Let's try that again, shall we?");
+        }
     }
 
     /**
