@@ -15,7 +15,7 @@ Pre-requisites:
 
 **Download** or **clone** the repo, and follow these instructions:
 
-```
+```java
 // cd into the directory
 cd a-star_assignment/
 
