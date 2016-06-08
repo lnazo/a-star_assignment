@@ -2,14 +2,39 @@
 
 An implementation of the A* path finding algorithm.
 
-### Quickstart
+###Pre-requisites:
 
-Pre-requisites:
 * Git
 * Java 1.7
 * Python 3
 * Maven
 * SonarQube
+
+#### Basis for assignment
+
+Movement Cost for Terrain:
+  * Non-walkable:
+        N/A = Water (~)
+  * Walkable:
+    1 = Flatlands (. or @ or X)
+    2 = Forest (*)
+    3 = Mountain (^)
+
+```java
+Test Map:
+  @*^^^    @ = User start
+  ~~*~.    X = The goal tile
+  **...
+  ^..*~
+  ~~*~X
+  
+Test Map Solution:
+  ##^^^    # = Best path
+  ~~#~.
+  **.#.
+  ^..#~
+  ~~*~#
+```
 
 #### Run the algorithm
 
