@@ -28,5 +28,6 @@ e.g. py find_path.py my_map.txt
 
 // the solution will be prepared and displayed
 ```
+Done using [Kevin Glass's](http://www.cokeandcode.com/main/tutorials/path-finding//) amazing tutorial as a reference.
 
 Enjoy.
