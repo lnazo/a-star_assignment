@@ -28,7 +28,7 @@ public class MapBuilder implements TileBasedMap
     private int countCol = 0;
 
     // for debugging
-    private final static Logger logger = Logger.getLogger(MapBuilder.class);
+    //private static final Logger LOG = Logger.getLogger(MapBuilder.class);
 
     public MapBuilder()
     {
@@ -190,7 +190,7 @@ public class MapBuilder implements TileBasedMap
 
         catch (IOException e)
         {
-            logger.error("The following error occurred : " + e);
+            //LOG.debug("The following error occurred : " + e);
             System.out.println("The specified file couldn't be found, or it's not a map.");
         }
     }

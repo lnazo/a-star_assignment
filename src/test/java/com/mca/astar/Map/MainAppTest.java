@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 /**
  * @author Lubabalo Nazo
  */
-public class MainAppBuilderTest
+public class MainAppTest
 {
     private MapBuilder map;
 

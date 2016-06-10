@@ -19,7 +19,7 @@ public class MainApp
     public static Path path;
 
     // for debugging
-    private final static Logger logger = Logger.getLogger(MainApp.class);
+    //private static final Logger LOG = Logger.getLogger(MainApp.class);
 
     public static void main(String[] args)
     {
@@ -52,7 +52,7 @@ public class MainApp
 
         catch (Exception e)
         {
-            logger.error("The following error occurred : " + e);
+            //LOG.debug("The following error occurred : " + e);
             System.out.println("Let's try that again, shall we?");
         }
     }
