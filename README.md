@@ -52,9 +52,11 @@ py find_path.py <file-name> (Windows) or python find_path.py <file-name> (Linux)
 e.g. py find_path.py my_map.txt
 
 // to view light/recent or full sonar issues, enter
-py find_path.py <file-name> <light or full> (Windows) or python find_path.py <file-name> <light or full>(Linux)
-e.g. py find_path.py large_map.txt light
+py sonar_issues.py <light> (Windows) or python sonar_issues.py <full> (Linux)
+e.g. py sonar_issues.py light
 ```
+
+For help with setting up SonarQube 5.6 on Windows, see [this](https://gist.github.com/lnazo/e062c7023ebef627b7e254ec93a60fb6).
 
 Done using [Kevin Glass's](http://www.cokeandcode.com/main/tutorials/path-finding//) amazing tutorial as a reference.
 
