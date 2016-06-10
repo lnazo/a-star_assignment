@@ -1,4 +1,4 @@
-package com.mca.astar.Node;
+package com.mca.astar.node;
 
 /**
  * @author Lubabalo Nazo

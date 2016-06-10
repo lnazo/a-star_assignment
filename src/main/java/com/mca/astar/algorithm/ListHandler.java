@@ -1,6 +1,6 @@
-package com.mca.astar.AStar;
+package com.mca.astar.algorithm;
 
-import com.mca.astar.Node.AStarNode;
+import com.mca.astar.node.AStarNode;
 
 import java.util.ArrayList;
 import java.util.Collections;

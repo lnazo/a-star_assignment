@@ -1,5 +1,5 @@
-com.mca.astar.AStar
-com.mca.astar.Heuristic
-com.mca.astar.Map
-com.mca.astar.Node
-com.mca.astar.Path
+com.mca.astar.algorithm
+com.mca.astar.heuristic
+com.mca.astar.map
+com.mca.astar.node
+com.mca.astar.path

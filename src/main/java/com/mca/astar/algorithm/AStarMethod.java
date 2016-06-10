@@ -1,10 +1,10 @@
-package com.mca.astar.AStar;
+package com.mca.astar.algorithm;
 
-import com.mca.astar.Heuristic.ManhattanH;
-import com.mca.astar.Map.MapBuilder;
-import com.mca.astar.Node.AStarNode;
-import com.mca.astar.Path.Path;
-import com.mca.astar.Path.PathFinder;
+import com.mca.astar.heuristic.ManhattanH;
+import com.mca.astar.map.MapBuilder;
+import com.mca.astar.node.AStarNode;
+import com.mca.astar.path.Path;
+import com.mca.astar.path.PathFinder;
 
 /**
  * Implementation of A* Algorithm
@@ -16,7 +16,7 @@ public class AStarMethod implements PathFinder
     private MapBuilder map;
 
     // set of tiles in the map
-    private AStarNode[][] AStarNodes;
+    private AStarNode[][] aStarNodes;
 
     // the max distance to consider
     private int maxSearchDistance;
@@ -53,12 +53,12 @@ public class AStarMethod implements PathFinder
         this.map = map;
         this.maxSearchDistance = maxSearchDistance;
 
-        AStarNodes = new AStarNode[map.getBreadthOfTiles()][map.getHeightOfTiles()];
+        aStarNodes = new AStarNode[map.getBreadthOfTiles()][map.getHeightOfTiles()];
         for (int x = 0; x < map.getBreadthOfTiles(); x++)
         {
             for (int y = 0; y < map.getHeightOfTiles(); y++)
             {
-                AStarNodes[x][y] = new AStarNode(x, y);
+                aStarNodes[x][y] = new AStarNode(x, y);
             }
         }
     }
@@ -74,22 +74,22 @@ public class AStarMethod implements PathFinder
         }
 
         // initial state for A*
-        AStarNodes[startX][startY].setCost(0);
-        AStarNodes[startX][startY].setDepth(0);
+        aStarNodes[startX][startY].setCost(0);
+        aStarNodes[startX][startY].setDepth(0);
         lists.getClosedList().clear();
         lists.getOpenList().clear();
         // start node added to open list; closed list empty
-        lists.addToOpenList(AStarNodes[startX][startY]);
+        lists.addToOpenList(aStarNodes[startX][startY]);
 
         // parent of target location set to null (route not found yet)
-        AStarNodes[goalX][goalY].setParent(null);
+        aStarNodes[goalX][goalY].setParent(null);
 
         // while max depth hasn't been exceeded
         while ((lists.getOpenListSize() != 0) && (maxDepth < maxSearchDistance))
         {
             // check the first node in the open list
             AStarNode current = lists.getFirstInOpenList();
-            if (current == AStarNodes[goalX][goalY])
+            if (current == aStarNodes[goalX][goalY])
             {
                 break;
             }
@@ -100,49 +100,11 @@ public class AStarMethod implements PathFinder
             lists.addToClosedList(current);
 
             // check the neighbours of the current node
-            for (int x = 0; x < 2; x++)
-            {
-                for (int y = 0; y < 2; y++)
-                {
-                    // don't consider the current location
-                    if (x == 0 && y == 0)
-                        continue;
-
-                    // find a neighbouring tile and check it
-                    int xp = x + current.getX();
-                    int yp = y + current.getY();
-
-                    if (validLocation(startX, startY, xp, yp))
-                    {
-                        // the current cost = cost of progress + cost of movement
-                        float nextStepCost = current.getCost() + map.getCost(current.getX(), current.getY(), xp, yp);
-                        AStarNode neighbour = AStarNodes[xp][yp];
-                        map.pathFinderVisited(xp, yp);
-
-                        // check the cost of the current tile
-                        if (nextStepCost < neighbour.getCost())
-                        {
-                            if (lists.checkInOpenList(neighbour))
-                                lists.removeFromOpenList(neighbour);
-                            if (lists.checkInClosedList(neighbour))
-                                lists.removeFromClosedList(neighbour);
-                        }
-
-                        // consider following tile as next possible step
-                        if (!lists.checkInOpenList(neighbour) && !lists.checkInClosedList(neighbour))
-                        {
-                            neighbour.setCost(nextStepCost);
-                            maxDepth = Math.max(maxDepth, neighbour.setParentDepth(current));
-                            neighbour.setHeuristic(heuristic.getCost(xp, yp, goalX, goalY));
-                            lists.addToOpenList(neighbour);
-                        }
-                    }
-                }
-            }
+            checkNodeNeighbours(current, startX, startY, goalX, goalY);
         }
 
         // if the search is complete and no path has been found
-        if (AStarNodes[goalX][goalY].getParent() == null)
+        if (aStarNodes[goalX][goalY].getParent() == null)
         {
             // if no path is found
             return null;
@@ -150,9 +112,9 @@ public class AStarMethod implements PathFinder
 
         // find the path from the target location to the start location
         Path path = new Path();
-        AStarNode target = AStarNodes[goalX][goalY];
+        AStarNode target = aStarNodes[goalX][goalY];
 
-        while (target != AStarNodes[startX][startY])
+        while (target != aStarNodes[startX][startY])
         {
             path.addStepToStart(target.getX(), target.getY());
             target = target.getParent();
@@ -182,5 +144,69 @@ public class AStarMethod implements PathFinder
         }
 
         return !invalid;
+    }
+
+    /**
+     * Check the neighbours of the current node
+     * @param startX The x coordinate of the start tile
+     * @param startY The y coordinate of the start tile
+     * @param goalX The x coordinate of the goal tile
+     * @param goalY The y coordinate of the goal tile
+     */
+    public void checkNodeNeighbours(AStarNode current, int startX, int startY, int goalX, int goalY)
+    {
+        for (int x = 0; x < 2; x++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
+                // don't consider the current location
+                if (x == 0 && y == 0)
+                    continue;
+
+                // find a neighbouring tile and check it
+                int xp = x + current.getX();
+                int yp = y + current.getY();
+
+                considerTiles(current, startX, startY, goalX, goalY, xp, yp);
+            }
+        }
+    }
+
+    /**
+     * Considers the current and following tiles
+     * @param startX The x coordinate of the start tile
+     * @param startY The y coordinate of the start tile
+     * @param goalX The x coordinate of the goal tile
+     * @param goalY The y coordinate of the goal tile
+     * @param xp The x coordinate of the next tile
+     * @param yp The y coordinate of the next tile
+     */
+    public void considerTiles(AStarNode current, int startX, int startY, int goalX, int goalY, int xp, int yp)
+    {
+        if (validLocation(startX, startY, xp, yp))
+        {
+            // the current cost = cost of progress + cost of movement
+            float nextStepCost = current.getCost() + map.getCost(current.getX(), current.getY(), xp, yp);
+            AStarNode neighbour = aStarNodes[xp][yp];
+            map.pathFinderVisited(xp, yp);
+
+            // check the cost of the current tile
+            if (nextStepCost < neighbour.getCost())
+            {
+                if (lists.checkInOpenList(neighbour))
+                    lists.removeFromOpenList(neighbour);
+                if (lists.checkInClosedList(neighbour))
+                    lists.removeFromClosedList(neighbour);
+            }
+
+            // consider following tile as next possible step
+            if (!lists.checkInOpenList(neighbour) && !lists.checkInClosedList(neighbour))
+            {
+                neighbour.setCost(nextStepCost);
+                maxDepth = Math.max(maxDepth, neighbour.setParentDepth(current));
+                neighbour.setHeuristic(heuristic.getCost(xp, yp, goalX, goalY));
+                lists.addToOpenList(neighbour);
+            }
+        }
     }
 }

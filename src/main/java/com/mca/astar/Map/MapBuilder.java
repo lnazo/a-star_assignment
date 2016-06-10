@@ -1,6 +1,4 @@
-package com.mca.astar.Map;
-
-import org.apache.log4j.Logger;
+package com.mca.astar.map;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,13 +42,13 @@ public class MapBuilder implements TileBasedMap
         {
             for (int j = 0; j < terrain.length; j++)
             {
-                if (tiledMap[j][i].equals("~"))
+                if ("~".equals(tiledMap[i][j]))
                     terrain[j][i] = WATER;
-                else if (tiledMap[j][i].equals(".") || tiledMap[j][i].equals("@") || tiledMap[j][i].equals("X"))
+                else if (".".equals(tiledMap[j][i]) || "@".equals(tiledMap[j][i])|| "X".equals(tiledMap[j][i]))
                     terrain[j][i] = FLAT_LANDS;
-                if (tiledMap[j][i].equals("*"))
+                if ("*".equals(tiledMap[j][i]))
                     terrain[j][i] = FOREST;
-                if (tiledMap[j][i].equals("^"))
+                if ("^".equals(tiledMap[j][i]))
                     terrain[j][i] = MOUNTAIN;
             }
         }

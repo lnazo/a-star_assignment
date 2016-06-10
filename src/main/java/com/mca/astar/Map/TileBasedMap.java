@@ -1,4 +1,4 @@
-package com.mca.astar.Map;
+package com.mca.astar.map;
 
 /**
  * @author Lubabalo Nazo

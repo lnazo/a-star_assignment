@@ -1,6 +1,5 @@
-package com.mca.astar.Path;
+package com.mca.astar.path;
 
-import com.mca.astar.Path.Path;
 import org.junit.Before;
 import org.junit.Test;
 

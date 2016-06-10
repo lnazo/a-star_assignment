@@ -1,8 +1,7 @@
-package com.mca.astar.Map;
+package com.mca.astar.map;
 
-import com.mca.astar.AStar.AStarMethod;
-import com.mca.astar.Path.Path;
-import org.apache.log4j.Logger;
+import com.mca.astar.algorithm.AStarMethod;
+import com.mca.astar.path.Path;
 
 /**
  * Driver class
@@ -11,42 +10,39 @@ import org.apache.log4j.Logger;
 public class MainApp
 {
     // the map to build
-    private MapBuilder mapBuilder = new MapBuilder();
+    private static MapBuilder mapBuilder = new MapBuilder();
     private static String[][] tiledMap;
 
     // the path to find
-    static AStarMethod pathFinder;
-    public static Path path;
+    private static AStarMethod pathFinder;
+    private static Path path;
 
     // for debugging
     //private static final Logger LOG = Logger.getLogger(MainApp.class);
 
     public static void main(String[] args)
     {
-        // builds up the map based on text file input
-        MainApp obj = new MainApp();
-
         try
         {
             if (args.length == 0)
-                obj.mapBuilder.getFile("small_map.txt");
+                mapBuilder.getFile("small_map.txt");
             else
-                obj.mapBuilder.getFile(args[0]);
+                mapBuilder.getFile(args[0]);
 
-            tiledMap = obj.mapBuilder.getTiledMap();
+            tiledMap = mapBuilder.getTiledMap();
 
             // finds the path based on start and goal position
-            obj.pathFinder = new AStarMethod(obj.mapBuilder, 100);
-            obj.path = obj.pathFinder.findPath(0, 0, tiledMap.length - 1, tiledMap.length - 1);
+            pathFinder = new AStarMethod(mapBuilder, 100);
+            path = pathFinder.findPath(0, 0, tiledMap.length - 1, tiledMap.length - 1);
 
             originalMap();
 
-            for (int i = 0; i < obj.path.getLength(); i++)
+            for (int i = 0; i < path.getLength(); i++)
             {
-                tiledMap[obj.path.getX(i)][obj.path.getY(i)] = "#";
+                tiledMap[path.getX(i)][path.getY(i)] = "#";
             }
 
-            System.out.println();
+            System.out.printf("%n");
             routeTaken();
         }
 
@@ -69,7 +65,7 @@ public class MainApp
             {
                 System.out.print(tiledMap[j][i]);
             }
-            System.out.println();
+            System.out.printf("%n");
         }
     }
 
@@ -85,7 +81,7 @@ public class MainApp
             {
                 System.out.print(tiledMap[j][i]);
             }
-            System.out.println();
+            System.out.printf("%n");
         }
     }
 }

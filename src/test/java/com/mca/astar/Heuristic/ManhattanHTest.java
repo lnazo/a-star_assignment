@@ -1,6 +1,5 @@
-package com.mca.astar.Heuristic;
+package com.mca.astar.heuristic;
 
-import com.mca.astar.Heuristic.ManhattanH;
 import org.junit.Before;
 import org.junit.Test;
 

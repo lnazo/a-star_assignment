@@ -1,4 +1,4 @@
-package com.mca.astar.Path;
+package com.mca.astar.path;
 
 import java.util.ArrayList;
 import java.util.List;

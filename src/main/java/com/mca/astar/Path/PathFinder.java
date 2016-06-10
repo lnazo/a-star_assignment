@@ -1,9 +1,10 @@
-package com.mca.astar.Path;
+package com.mca.astar.path;
 
 
 /**
  * @author Lubabalo Nazo
  */
+@FunctionalInterface
 public interface PathFinder
 {
     /**

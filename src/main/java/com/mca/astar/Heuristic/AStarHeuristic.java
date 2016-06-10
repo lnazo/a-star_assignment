@@ -1,8 +1,9 @@
-package com.mca.astar.Heuristic;
+package com.mca.astar.heuristic;
 
 /**
  * @author Lubabalo Nazo
  */
+@FunctionalInterface
 public interface AStarHeuristic
 {
     /**

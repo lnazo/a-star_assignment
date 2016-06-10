@@ -1,4 +1,4 @@
-package com.mca.astar.Path;
+package com.mca.astar.path;
 
 /**
  * A step in the path
@@ -43,15 +43,17 @@ public class Step
      * Returns hash code of an object
      * @return The product coordinate of the coordinates
      */
+    @Override
     public int hashCode()
     {
         return x * y;
     }
 
     /**
- * Returns comparison of two objects
- * @return True if the steps are equal
- */
+     * Returns comparison of two objects
+     * @return True if the steps are equal
+     */
+    @Override
     public boolean equals(Object object)
     {
         if (object instanceof Step)

@@ -1,12 +1,12 @@
-package com.mca.astar.Heuristic;
+package com.mca.astar.heuristic;
 
 /**
- * Manhattan Heuristic implementation
+ * Manhattan heuristic implementation
  * @author Lubabalo Nazo
  */
 public class ManhattanH implements AStarHeuristic
 {
-    // calculates cost using Manhattan Heuristic
+    // calculates cost using Manhattan heuristic
     @Override
     public float getCost(int x, int y, int goalX, int goalY)
     {

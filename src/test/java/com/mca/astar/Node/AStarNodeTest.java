@@ -1,6 +1,5 @@
-package com.mca.astar.Node;
+package com.mca.astar.node;
 
-import com.mca.astar.Node.AStarNode;
 import org.junit.Before;
 import org.junit.Test;
 

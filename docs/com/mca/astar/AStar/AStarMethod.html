@@ -36,7 +36,7 @@
 <div class="subNav">
 <ul class="navList">
 <li>Prev Class</li>
-<li><a href="../../../../com/mca/astar/AStar/AStarMethodTest.html" title="class in com.mca.astar.AStar"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../com/mca/astar/AStar/AStarMethodTest.html" title="class in com.mca.astar.algorithm"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/mca/astar/AStar/AStarMethod.html" target="_top">Frames</a></li>
@@ -78,7 +78,7 @@
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">com.mca.astar.AStar</div>
+<div class="subTitle">com.mca.astar.algorithm</div>
 <h2 title="Class AStarMethod" class="title">Class AStarMethod</h2>
 </div>
 <div class="contentContainer">
@@ -86,7 +86,7 @@
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>com.mca.astar.AStar.AStarMethod</li>
+<li>com.mca.astar.algorithm.AStarMethod</li>
 </ul>
 </li>
 </ul>
@@ -95,13 +95,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../com/mca/astar/Path/PathFinder.html" title="interface in com.mca.astar.Path">PathFinder</a></dd>
+<dd><a href="../../../../com/mca/astar/Path/PathFinder.html" title="interface in com.mca.astar.path">PathFinder</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">AStarMethod</span>
 extends java.lang.Object
-implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="interface in com.mca.astar.Path">PathFinder</a></pre>
+implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="interface in com.mca.astar.path">PathFinder</a></pre>
 <div class="block">Implementation of A* Algorithm</div>
 </li>
 </ul>
@@ -121,15 +121,15 @@ implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="inter
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../com/mca/astar/AStar/AStarMethod.html#AStarMethod(com.mca.astar.Map.MapBuilder,%20int)">AStarMethod</a></strong>(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.Map">MapBuilder</a>&nbsp;map,
+<td class="colOne"><code><strong><a href="../../../../com/mca/astar/AStar/AStarMethod.html#AStarMethod(com.mca.astar.map.MapBuilder,%20int)">AStarMethod</a></strong>(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.map">MapBuilder</a>&nbsp;map,
            int&nbsp;maxSearchDistance)</code>
 <div class="block">Create a path finder with the default heuristic - closest to target.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../../com/mca/astar/AStar/AStarMethod.html#AStarMethod(com.mca.astar.Map.MapBuilder,%20int,%20com.mca.astar.Heuristic.ManhattanH)">AStarMethod</a></strong>(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.Map">MapBuilder</a>&nbsp;map,
+<td class="colOne"><code><strong><a href="../../../../com/mca/astar/AStar/AStarMethod.html#AStarMethod(com.mca.astar.map.MapBuilder,%20int,%20com.mca.astar.Heuristic.ManhattanH)">AStarMethod</a></strong>(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.map">MapBuilder</a>&nbsp;map,
            int&nbsp;maxSearchDistance,
-           <a href="../../../../com/mca/astar/Heuristic/ManhattanH.html" title="class in com.mca.astar.Heuristic">ManhattanH</a>&nbsp;heuristic)</code>
+           <a href="../../../../com/mca/astar/Heuristic/ManhattanH.html" title="class in com.mca.astar.heuristic">ManhattanH</a>&nbsp;heuristic)</code>
 <div class="block">Initialises the map</div>
 </td>
 </tr>
@@ -149,7 +149,7 @@ implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="inter
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../../../com/mca/astar/Path/Path.html" title="class in com.mca.astar.Path">Path</a></code></td>
+<td class="colFirst"><code><a href="../../../../com/mca/astar/Path/Path.html" title="class in com.mca.astar.path">Path</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../com/mca/astar/AStar/AStarMethod.html#findPath(int,%20int,%20int,%20int)">findPath</a></strong>(int&nbsp;startX,
         int&nbsp;startY,
         int&nbsp;goalX,
@@ -188,27 +188,27 @@ implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="inter
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AStarMethod(com.mca.astar.Map.MapBuilder, int)">
+<a name="AStarMethod(com.mca.astar.map.MapBuilder, int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>AStarMethod</h4>
-<pre>public&nbsp;AStarMethod(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.Map">MapBuilder</a>&nbsp;map,
+<pre>public&nbsp;AStarMethod(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.map">MapBuilder</a>&nbsp;map,
            int&nbsp;maxSearchDistance)</pre>
 <div class="block">Create a path finder with the default heuristic - closest to target.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>map</code> - The map to be searched</dd><dd><code>maxSearchDistance</code> - The maximum depth we'll search before giving up</dd></dl>
 </li>
 </ul>
-<a name="AStarMethod(com.mca.astar.Map.MapBuilder, int, com.mca.astar.Heuristic.ManhattanH)">
+<a name="AStarMethod(com.mca.astar.map.MapBuilder, int, com.mca.astar.heuristic.ManhattanH)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AStarMethod</h4>
-<pre>public&nbsp;AStarMethod(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.Map">MapBuilder</a>&nbsp;map,
+<pre>public&nbsp;AStarMethod(<a href="../../../../com/mca/astar/Map/MapBuilder.html" title="class in com.mca.astar.map">MapBuilder</a>&nbsp;map,
            int&nbsp;maxSearchDistance,
-           <a href="../../../../com/mca/astar/Heuristic/ManhattanH.html" title="class in com.mca.astar.Heuristic">ManhattanH</a>&nbsp;heuristic)</pre>
+           <a href="../../../../com/mca/astar/Heuristic/ManhattanH.html" title="class in com.mca.astar.heuristic">ManhattanH</a>&nbsp;heuristic)</pre>
 <div class="block">Initialises the map</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>map</code> - Map that contains the path</dd><dd><code>maxSearchDistance</code> - The max distance to consider</dd><dd><code>heuristic</code> - The heuristic used to determine search pattern</dd></dl>
 </li>
@@ -227,7 +227,7 @@ implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="inter
 <ul class="blockList">
 <li class="blockList">
 <h4>findPath</h4>
-<pre>public&nbsp;<a href="../../../../com/mca/astar/Path/Path.html" title="class in com.mca.astar.Path">Path</a>&nbsp;findPath(int&nbsp;startX,
+<pre>public&nbsp;<a href="../../../../com/mca/astar/Path/Path.html" title="class in com.mca.astar.path">Path</a>&nbsp;findPath(int&nbsp;startX,
             int&nbsp;startY,
             int&nbsp;goalX,
             int&nbsp;goalY)</pre>
@@ -235,7 +235,7 @@ implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="inter
 <div class="block">Get the route from start to finish</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../com/mca/astar/Path/PathFinder.html#findPath(int,%20int,%20int,%20int)">findPath</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/mca/astar/Path/PathFinder.html" title="interface in com.mca.astar.Path">PathFinder</a></code></dd>
+<dd><code><a href="../../../../com/mca/astar/Path/PathFinder.html#findPath(int,%20int,%20int,%20int)">findPath</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/mca/astar/Path/PathFinder.html" title="interface in com.mca.astar.path">PathFinder</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>startX</code> - The x coordinate of the start tile</dd><dd><code>startY</code> - The y coordinate of the start tile</dd><dd><code>goalX</code> - The x coordinate of the goal tile</dd><dd><code>goalY</code> - The y coordinate of the goal tile</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The route from start to finish</dd></dl>
 </li>
@@ -281,7 +281,7 @@ implements <a href="../../../../com/mca/astar/Path/PathFinder.html" title="inter
 <div class="subNav">
 <ul class="navList">
 <li>Prev Class</li>
-<li><a href="../../../../com/mca/astar/AStar/AStarMethodTest.html" title="class in com.mca.astar.AStar"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../com/mca/astar/AStar/AStarMethodTest.html" title="class in com.mca.astar.algorithm"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/mca/astar/AStar/AStarMethod.html" target="_top">Frames</a></li>

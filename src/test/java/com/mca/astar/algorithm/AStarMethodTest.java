@@ -1,6 +1,6 @@
-package com.mca.astar.AStar;
+package com.mca.astar.algorithm;
 
-import com.mca.astar.Map.MapBuilder;
+import com.mca.astar.map.MapBuilder;
 import org.junit.Before;
 import org.junit.Test;
 

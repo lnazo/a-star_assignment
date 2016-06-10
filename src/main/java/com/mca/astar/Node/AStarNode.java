@@ -1,4 +1,4 @@
-package com.mca.astar.Node;
+package com.mca.astar.node;
 
 /**
  * AStarNode class
@@ -131,5 +131,26 @@ public class AStarNode implements Node, Comparable
         else
             return 0;
 
+    }
+
+    // returns comparison of two objects
+    @Override
+    public boolean equals(Object object)
+    {
+        if (object instanceof AStarNode)
+        {
+            AStarNode newObject = (AStarNode) object;
+
+            if (newObject.x == x && newObject.y == y)
+                return true;
+        }
+        return false;
+    }
+
+    // returns hash code of an object
+    @Override
+    public int hashCode()
+    {
+        return x * y;
     }
 }
