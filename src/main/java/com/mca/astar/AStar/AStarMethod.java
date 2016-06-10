@@ -43,7 +43,7 @@ public class AStarMethod implements PathFinder
 
     /**
      * Initialises the map
-     * @param map Map that contains the path
+     * @param map MainApp that contains the path
      * @param maxSearchDistance The max distance to consider
      * @param heuristic The heuristic used to determine search pattern
      */

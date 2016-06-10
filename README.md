@@ -36,7 +36,7 @@ Test Map Solution:
   ~~*~#
 ```
 
-#### Run the algorithm
+#### Running the algorithm
 
 **Download** or **clone** the repo, and follow these instructions:
 

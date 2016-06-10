@@ -1,5 +1,7 @@
 package com.mca.astar.Map;
 
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -24,6 +26,9 @@ public class MapBuilder implements TileBasedMap
     // the size of the map
     private int countRow = 0;
     private int countCol = 0;
+
+    // for debugging
+    private final static Logger logger = Logger.getLogger(MapBuilder.class);
 
     public MapBuilder()
     {
@@ -185,6 +190,7 @@ public class MapBuilder implements TileBasedMap
 
         catch (IOException e)
         {
+            logger.error("The following error occurred : " + e);
             System.out.println("The specified file couldn't be found, or it's not a map.");
         }
     }

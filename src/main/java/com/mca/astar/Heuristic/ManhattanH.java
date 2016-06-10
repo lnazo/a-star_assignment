@@ -7,6 +7,7 @@ package com.mca.astar.Heuristic;
 public class ManhattanH implements AStarHeuristic
 {
     // calculates cost using Manhattan Heuristic
+    @Override
     public float getCost(int x, int y, int goalX, int goalY)
     {
         float dx = Math.abs(x - goalX);

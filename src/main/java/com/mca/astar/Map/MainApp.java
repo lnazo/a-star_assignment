@@ -2,25 +2,29 @@ package com.mca.astar.Map;
 
 import com.mca.astar.AStar.AStarMethod;
 import com.mca.astar.Path.Path;
+import org.apache.log4j.Logger;
 
 /**
  * Driver class
  * @author Lubabalo Nazo
  */
-public class Map
+public class MainApp
 {
     // the map to build
-    MapBuilder mapBuilder = new MapBuilder();
-    static String[][] tiledMap;
+    private MapBuilder mapBuilder = new MapBuilder();
+    private static String[][] tiledMap;
 
     // the path to find
     static AStarMethod pathFinder;
     public static Path path;
 
+    // for debugging
+    private final static Logger logger = Logger.getLogger(MainApp.class);
+
     public static void main(String[] args)
     {
         // builds up the map based on text file input
-        Map obj = new Map();
+        MainApp obj = new MainApp();
 
         try
         {
@@ -48,6 +52,7 @@ public class Map
 
         catch (Exception e)
         {
+            logger.error("The following error occurred : " + e);
             System.out.println("Let's try that again, shall we?");
         }
     }
