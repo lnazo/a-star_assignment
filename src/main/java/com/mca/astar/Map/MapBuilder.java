@@ -3,6 +3,7 @@ package com.mca.astar.map;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import org.apache.log4j.Logger;
 
 /**
  * Builds the map based on input
@@ -26,7 +27,7 @@ public class MapBuilder implements TileBasedMap
     private int countCol = 0;
 
     // for debugging
-    //private static final Logger LOG = Logger.getLogger(MapBuilder.class);
+    private static final Logger LOG = Logger.getLogger(MapBuilder.class);
 
     public MapBuilder()
     {
@@ -188,8 +189,7 @@ public class MapBuilder implements TileBasedMap
 
         catch (IOException e)
         {
-            //LOG.debug("The following error occurred : " + e);
-            System.out.println("The specified file couldn't be found, or it's not a map.");
+            LOG.debug("Looks like we couldn't find the file: " + e);
         }
     }
 }

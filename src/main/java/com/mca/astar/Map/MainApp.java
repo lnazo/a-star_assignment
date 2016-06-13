@@ -2,6 +2,7 @@ package com.mca.astar.map;
 
 import com.mca.astar.algorithm.AStarMethod;
 import com.mca.astar.path.Path;
+import org.apache.log4j.Logger;
 
 /**
  * Driver class
@@ -18,7 +19,7 @@ public class MainApp
     private static Path path;
 
     // for debugging
-    //private static final Logger LOG = Logger.getLogger(MainApp.class);
+    private static final Logger LOG = Logger.getLogger(MainApp.class);
 
     public static void main(String[] args)
     {
@@ -48,8 +49,7 @@ public class MainApp
 
         catch (Exception e)
         {
-            //LOG.debug("The following error occurred : " + e);
-            System.out.println("Let's try that again, shall we?");
+            LOG.debug("Shall we try again?");
         }
     }
 
